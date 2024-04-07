@@ -1,0 +1,13 @@
+version: "3"
+services:
+  dozzle:
+    image: docker.io/amir20/dozzle:latest
+    container_name: dozzle
+    volumes:
+      - $XDG_RUNTIME_DIR/podman/podman.sock:/var/run/docker.sock
+    ports:
+      - 9999:8080
+    restart: unless-stopped
+    labels:
+      - "io.containers.autoupdate=registry"
+
